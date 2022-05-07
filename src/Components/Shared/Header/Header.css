@@ -1,0 +1,21 @@
+.link {
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 5px 10px;
+  }
+  
+  .link:hover {
+    color: #FDA7DF;
+  }
+  
+  .link-active:hover {
+    color: #FDA7DF;
+  }
+  .link-active {
+    color: #FDA7DF;
+  }
+  
+  .nav-link {
+    background: whitesmoke;
+  }

@@ -1,0 +1,9 @@
+@media (min-width:769px) {
+    .checkout{
+        max-width: 500px;
+        margin:auto;
+    }
+}
+.checkout .checkout-link{
+    display: none;
+}

@@ -1,0 +1,51 @@
+import React, { useState } from 'react';
+import { Button, Col, Form } from 'react-bootstrap';
+
+const AddItems = () => {
+    const [name,setName] =useState('');
+    const [supplier,setSupplier] =useState('');
+    const [about,setAbout] =useState('');
+    const [price,setPrice] =useState('');
+    const [image,setImage] =useState('');
+    const [quantity,setQuantity] =useState('');
+    return (
+        <div className='container'>
+            <Form className='row' >
+                <Col md={6}>
+                    <Form.Group className="mb-3 " controlId="formBasicEmail">
+                        <Form.Label>Image</Form.Label>
+                        <Form.Control type="text" value={image} onChange={(e)=>setImage(e.target.value)} placeholder="Enter email" />
+                    </Form.Group>
+                    <Form.Group className="mb-3 " controlId="formBasicEmail">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="text" value={name} onChange={(e)=>setName(e.target.value)} placeholder="Enter email" />
+                    </Form.Group>
+                    <Form.Group className="mb-3 " controlId="formBasicEmail">
+                        <Form.Label>Supplier</Form.Label>
+                        <Form.Control type="text" value={supplier}  onChange={(e)=>setSupplier(e.target.value)} placeholder="Enter email" />
+                    </Form.Group>
+                    <Form.Group className="mb-3 " controlId="formBasicEmail">
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control type="number" value={price} onChange={(e)=>setPrice(e.target.value)} placeholder="Enter email" />
+                    </Form.Group>
+                </Col>
+                <Col  md={6}>
+                    <Form.Group className="mb-3 " controlId="formBasicEmail">
+                        <Form.Label>Quantity</Form.Label>
+                        <Form.Control type="number" value={quantity} onChange={(e)=>setQuantity(e.target.value)} placeholder="Enter email" />
+                    </Form.Group>
+                    <Form.Group className="mb-3 " controlId="formBasicEmail">
+                        <Form.Label>About</Form.Label>
+                        <textarea rows='8' value={about} onChange={(e)=>setAbout(e.target.value)} className="form-control" placeholder="Enter email" />
+                    </Form.Group>
+                    
+                </Col>
+                <Button variant="primary" type="submit">
+                    Add Items
+                </Button>
+            </Form>
+        </div>
+    );
+};
+
+export default AddItems;

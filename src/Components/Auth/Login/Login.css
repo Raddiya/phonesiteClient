@@ -1,0 +1,19 @@
+.login-container{
+    border:5px solid skyblue;
+    height: 250px;
+    width: 300px;
+    align-items:center;
+    border-radius: 10px;
+    
+    }
+    .login-title{
+        text-align: center;
+        color:burlywood;
+    }
+    .button{
+     background-color:cadetblue;
+     justify-content: center;
+    }
+    .input{
+        margin: 5px;
+    }

@@ -1,0 +1,62 @@
+[
+    {
+      "_id": "625c53582c44a5aff342224f",
+      "image": "/Image/dental-implants-anatomy-closeup-model_5.webp",
+      "name": "Teeth implant",
+      "about": "Dental implants are surgically placed in your jawbone, where they serve as the roots of missing teeth. Because the titanium in the implants fuses with your jawbone, the implants won't slip, make noise or cause bone damage the way fixed bridgework or dentures might.",
+      "price": "6000",
+      "quantity":"2",
+      "supplier":"jack",
+      "email":"jack@gmail.com"
+    },
+    {
+      "_id": "625c5358f3abb5faa28d5014",
+      "image": "/Image/tooth-anatomy-damage8.webp",
+      "name": "Root canal",
+      "about": "Root canal is a treatment to repair and save a badly damaged or infected tooth instead of removing it. The term root canal comes from cleaning of the canals inside a tooth's root. Decades ago, root canal treatments often were painful. With dental advances and local anesthetics, most people have little if any pain during a root canal.",
+      "price": "4000",
+      "quantity":"2",
+      "supplier":"jack",
+      "email":"jack@gmail.com"
+    },
+    {
+      "_id": "625c5358c4d5ff8a735c8ec7",
+      "image": "/Image/dentists-treat-patients-teeth_2.webp",
+      "name": "Teeth filling",
+      "about": "A filling is one of the most common dental procedures.Fillings for children take about the same amount of time as they do for adults, with some additional considerations.",
+      "price": "1200",
+      "quantity":"2",
+      "supplier":"jack",
+      "email":"jack@gmail.com"
+    },
+    {
+      "_id": "625c53585982be2ea243467c",
+      "image": "/Image/teeth-examination_6.webp",
+      "name": "OPG X-ray",
+      "about": "An OPG is a panoramic or wide view x-ray of the lower face, which displays all the teeth of the upper and lower jaw on a single film. It demonstrates the number, position and growth of all the teeth including those that have not yet surfaced or erupted.",
+      "price": "500",
+      "quantity":"2",
+      "supplier":"jack",
+      "email":"jack@gmail.com"
+    },
+    {
+      "_id": "625c5358b2f25ebb6191bdcd",
+      "image": "/Image/teeth-dental-care-medical-background_3.webp",
+      "name": "Tooth braces",
+      "about": "We Are One Of The Best Dental Clinics In Uttara. Digital Dental Clinic. Braces Treatment with Specialist Care. State-of-the-art Technologies. Call Now For Appointment. Visit Laser Dental. Services: Teeth Whitening, Dental Implant, Root Canal Treatment, Braces.",
+      "price": "30000",
+      "quantity":"2",
+      "supplier":"jack",
+      "email":"jack@gmail.com"
+    },
+    {
+      "_id": "625c53583ace5a02e2867f1c",
+      "image": "/Image/dentist-with-smile_1.webp",
+      "name": "Teeth whitening",
+      "about": "Teeth whitening involves bleaching your teeth to make them lighter. It can't make your teeth brilliant white, but it can lighten the existing colour by several shades.",
+      "price": "1500",
+      "quantity":"2",
+      "supplier":"jack",
+      "email":"jack@gmail.com"
+    }
+  ]
