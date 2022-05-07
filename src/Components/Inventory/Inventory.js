@@ -1,12 +1,12 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import MyCard from '../MyCard/MyCard';
 
 const Inventory = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
-      fetch("data.json")
-        .then((res) => res.json())
-        .then((data) => setServices(data));
+      axios.get('/products')
+   .then(res=>setServices(res.data.result))
     }, []);
     return (
         <div className='container'>

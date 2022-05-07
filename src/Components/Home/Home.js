@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MyCard from '../MyCard/MyCard';
 import Image from '../Image/smartphone.jpg'
-import './Home.css'
+import './Home.css';
+import axios from 'axios';
 
 const Home = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("data.json")
-      .then((res) => res.json())
-      .then((data) => setServices(data));
+   axios.get('/products')
+   .then(res=>setServices(res.data.result))
   }, []);
   return (
     <div>

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
 
@@ -6,9 +7,8 @@ const ManageInventory = () => {
     const { _id, name, price, quantity, supplier, about } = services
 
     useEffect(() => {
-        fetch("data.json")
-            .then((res) => res.json())
-            .then((data) => setServices(data));
+        axios.get('/products')
+        .then(res=>setServices(res.data.result))
     }, []);
 
 
