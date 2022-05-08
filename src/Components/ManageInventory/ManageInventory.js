@@ -4,13 +4,20 @@ import { Button, Table } from 'react-bootstrap';
 
 const ManageInventory = () => {
     const [services, setServices] = useState([]);
+    const [reload, setReload] = useState(true);
     const { _id, name, price, quantity, supplier, about } = services
 
     useEffect(() => {
         axios.get('/products')
-        .then(res=>setServices(res.data.result))
-    }, []);
-
+        .then(res=>{
+            setServices(res.data.result)
+            setReload (false)
+        })
+    }, [reload]);
+ const handleRemove=(id)=>{
+    axios.delete(`/product/${id}`)
+    .then (res=>setReload(true) )  
+ } 
 
     return (
         <div>
@@ -32,7 +39,7 @@ const ManageInventory = () => {
                                 <td> {service.supplier} </td>
                                 <td> {service.price} </td>
                                 <td> {service.quantity} </td>
-                                <td> <Button varient='danger'>Remove</Button> </td>
+                                <td> <Button onClick={ ()=> handleRemove(service._id)} varient='danger'>Remove</Button> </td>
                             </tr>
                         ))
                     }
