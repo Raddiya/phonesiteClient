@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 
 const SingleItems = () => {
     const [product, setProduct] = useState({})
+    const [add, setAdd] = useState('')
     const [reload, setReload] = useState(true);
     const { id } = useParams()
     useEffect(() => {
@@ -28,6 +29,17 @@ const SingleItems = () => {
         axios.put(`/product/${id}`, { quantity: updatedQuntity })
             .then(res => setReload(true));
     }
+    const handleAdd = () => {
+        if(parseInt(add)<=0){
+            return window.alert('must be positive number');
+        }
+        const updatedQuntity = parseInt(quantity) + parseInt(add)
+        axios.put(`/product/${id}`, { quantity: updatedQuntity })
+            .then(res =>{
+                setReload(true)
+                setAdd('')
+            });
+    }
     return (
         <div>
             <Card>
@@ -48,6 +60,10 @@ const SingleItems = () => {
                     </Card.Text>
 
                     <Button onClick={handleDeliver} varient='danger'>Delivered</Button>
+                    <div className='mt-4'>
+                    <input type={'number'} onChange={(e)=>setAdd(e.target.value)}/>
+                    <Button onClick={handleAdd} varient='success'>Add quantity</Button>
+                    </div>
                 </Card.Body>
             </Card>
         </div>
