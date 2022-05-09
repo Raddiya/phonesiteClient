@@ -2,15 +2,24 @@ import React, { useEffect, useState } from 'react';
 import MyCard from '../MyCard/MyCard';
 import './Home.css';
 import axios from 'axios';
-import { Accordion } from 'react-bootstrap';
+import { Accordion, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
    axios.get('/products')
-   .then(res=>setServices(res.data.result))
-  }, []);
+   .then(res=>{setServices(res.data.result)
+  setLoading (false);
+  
+  })
+  }, [loading]);
+  if (loading) {
+    return <Spinner animation="border" variant="primary" />
+}
+
   return (
     <div>
       <div className="banner">
