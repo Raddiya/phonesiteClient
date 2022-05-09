@@ -1,17 +1,25 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import MyCard from '../MyCard/MyCard';
 
 const MyItems = () => {
     const [services, setServices] = useState([]);
+    const token =localStorage.getItem('auth_token')
     useEffect(() => {
-      fetch("data.json")
-        .then((res) => res.json())
-        .then((data) => setServices(data));
-    }, []);
+      console.log(token);
+      axios.get("myitems",{
+        headers:{
+          Authorization:`Bearer ${token}`
+        }
+      })
+        .then((res) => setServices(res.data.result))
+    }, [token]);
     return (
         <div className='container'>
             <div className="row row-cols-md-2 row-cols-lg-3 g-4">
-            {services.map(
+
+            {
+            Array.isArray(services) &&  services.map(
               (item, index) =>
                 <MyCard key={index} product={item}></MyCard>
             )}

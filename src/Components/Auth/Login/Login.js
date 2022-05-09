@@ -4,6 +4,7 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-fireba
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../Firebase/Firebase.init";
 import './Login.css'
+import axios from "axios";
 
 
 
@@ -21,36 +22,36 @@ const Login = () => {
 
     const [signInWithEmail, user, loading, hookError] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, googleUser, loading2, googleError] = useSignInWithGoogle(auth);
-    console.log(googleUser)
+
 
     const handleEmailChange = (e) => {
         const emailRegex = /\S+@\S+\.\S+/;
         const validEmail = emailRegex.test(e.target.value);
-        
-        if(validEmail){
-            setUserInfo({...userInfo, email: e.target.value}) 
-            setErrors({...errors, email: ""})      
+
+        if (validEmail) {
+            setUserInfo({ ...userInfo, email: e.target.value })
+            setErrors({ ...errors, email: "" })
         } else {
-            setErrors({...errors, email: "Invalid email"})
-            setUserInfo({...userInfo, email: ""})
+            setErrors({ ...errors, email: "Invalid email" })
+            setUserInfo({ ...userInfo, email: "" })
         }
 
-        
+
 
         // setEmail;
     }
     const handlePasswordChange = (e) => {
         const passwordRegex = /.{6,}/;
         const validPassword = passwordRegex.test(e.target.value);
-        
-        if(validPassword){
-            setUserInfo({...userInfo, password: e.target.value});
-            setErrors({...errors, password: ""});
+
+        if (validPassword) {
+            setUserInfo({ ...userInfo, password: e.target.value });
+            setErrors({ ...errors, password: "" });
         } else {
-            setErrors({...errors, password: "Minimum 6 characters!"});
-            setUserInfo({...userInfo, password: ""})
+            setErrors({ ...errors, password: "Minimum 6 characters!" });
+            setUserInfo({ ...userInfo, password: "" })
         }
-        
+
     }
 
     const handleLogin = (e) => {
@@ -59,18 +60,33 @@ const Login = () => {
         console.log(userInfo)
 
         signInWithEmail(userInfo.email, userInfo.password);
-        
+
     }
 
-       const navigate = useNavigate();
-       const location = useLocation();
-       const from = location.state?.from?.pathname || "/";
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
-       useEffect(() => {
-           if (user) {
-               navigate(from);
-           }
-       }, [user]);
+    useEffect(() => {
+        if (user || googleUser) {
+            let email = '';
+            if (user) {
+                email = user.user.email;
+
+            }
+            else if (googleUser) {
+                email = googleUser.user.email;
+            }
+            if (email) {
+                axios.post('/login', { email })
+                    .then(res => {
+                        localStorage.setItem('auth_token', res.data.token)
+                        navigate(from);
+                    })
+            }
+
+        }
+    }, [user, googleUser]);
 
     useEffect(() => {
         if (hookError) {
@@ -88,10 +104,10 @@ const Login = () => {
         <div className="login-container container">
             <h1 className="login-title">LOGIN</h1>
             <form onSubmit={handleLogin}>
-                <input type="text" className= "input" placeholder="Your Email" onChange={handleEmailChange} />
+                <input type="text" className="input" placeholder="Your Email" onChange={handleEmailChange} />
                 {errors?.email && <p className="error-message">{errors.email}</p>}
-                <input className= "input" type="password" placeholder="password" onChange={handlePasswordChange} />
-                {errors?.password && <p className="error-message">{errors.password}</p> }
+                <input className="input" type="password" placeholder="password" onChange={handlePasswordChange} />
+                {errors?.password && <p className="error-message">{errors.password}</p>}
                 <br></br>
                 <button className="button">Login</button>
                 <ToastContainer />

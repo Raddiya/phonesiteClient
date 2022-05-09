@@ -1,95 +1,49 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../Firebase/Firebase.init';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.css'
 import { signOut } from 'firebase/auth';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 
 const Header = () => {
-  const [user]= useAuthState (auth)
-  const handleSignOut= event =>{
+  const [user] = useAuthState(auth)
+  const handleSignOut = event => {
     event.preventDefault()
-    signOut (auth)
+    signOut(auth)
+    localStorage.removeItem('auth_token')
   }
   return (
 
     <div>
       <Navbar bg="light" expand="lg">
-  <Container>
-    <Navbar.Brand href="#home"><h1>Phone site BD</h1></Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="ms-auto">
-      <NavLink
-            className={({ isActive }) => (isActive ? "link link-active" : "link")}
-            to="/"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => (isActive ? "link link-active" : "link")}
-            to="/myitems"
-          >
-          My Items
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => (isActive ? "link link-active" : "link")}
-            to="/inventory"
-          >
-          Inventory
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => (isActive ? "link link-active" : "link")}
-            to="/manageinventory"
-          >
-          Manage Inventory
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => (isActive ? "link link-active" : "link")}
-            to="/additems"
-          >
-            Add Items
-          </NavLink>
-          {
-            user?(<NavLink onClick={handleSignOut}
-              className= "link"
-              to="/"
-            >
-             Signout
-            </NavLink>):(<NavLink
-              className={({ isActive }) => (isActive ? "link link-active" : "link")}
-              to="/login"
-            >
-              Login
-            </NavLink>)
+        <Container>
+          <Navbar.Brand as={Link} to="/"><h1>Phone site BD</h1></Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto">
+              <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+              <Nav.Link as={NavLink} to="/inventory">Home</Nav.Link>
+              <Nav.Link as={NavLink} to="/blog">Home</Nav.Link>
+              {
+                user ? (<>
+                  <Nav.Link as={NavLink} to="/manageinventory">Home</Nav.Link>
+                  <Nav.Link as={NavLink} to="/myitems">Home</Nav.Link>
+                  <Nav.Link as={NavLink} to="/additems">Home</Nav.Link>
+                  <Nav.Link as={NavLink} onClick={handleSignOut} to="/">Signout</Nav.Link>
+                </>) : (<>
+                  <Nav.Link as={NavLink} to="/signup">Home</Nav.Link>
+                  <Nav.Link as={NavLink} to="/login">Home</Nav.Link>
 
-          }
-          
-          <NavLink
-            className={({ isActive }) => (isActive ? "link link-active" : "link")}
-            to="/signup"
-          >
-            Signup
-          </NavLink>                  
-          <NavLink
-            className={({ isActive }) => (isActive ? "link link-active" : "link")}
-            to="/blog"
-          >
-          Blog
-          </NavLink>      
-      </Nav>
-    </Navbar.Collapse>
-  </Container>
-</Navbar>
-    <nav className="nav-link">
-      <div className="container d-flex justify-content-center align-items-center gap-5">
-       
-        <div className="d-flex gap-4">
-                           
-        </div>
-      </div>
-    </nav>
+                </>)
+
+              }
+
+
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Col, Form } from 'react-bootstrap';
 import axios from 'axios';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase/Firebase.init';
 
 const AddItems = () => {
     const [name, setName] = useState('');
@@ -9,8 +11,10 @@ const AddItems = () => {
     const [price, setPrice] = useState('');
     const [image, setImage] = useState('');
     const [quantity, setQuantity] = useState('');
+    const [user]=useAuthState(auth)
     const handleAdd = (event) => {
-        const email = 'jack@gamil.com'
+        const email = user.email
+        console.log(email)
         event.preventDefault()
         axios.post('/products', { name, about, image, price, quantity, email, supplier })
         .then (res =>console.log (res.data))
