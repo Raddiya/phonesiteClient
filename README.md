@@ -1,6 +1,6 @@
 # An inventory website named 'Phone Site BD'
 
-Welcome to this website [Phone Site BD]()
+Welcome to this website [Phone Site BD](https://phone-site-bd.netlify.app/)
 
 ## About this project
 

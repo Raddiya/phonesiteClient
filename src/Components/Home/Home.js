@@ -23,10 +23,7 @@ const Home = () => {
   return (
     <div>
       <div className="banner">
-        <span className='intro' >
-          <h3>Your smile is our passion.</h3>
-          <p>We are here to help you.</p>
-        </span>
+       
       </div>
       {
         <div className="container mb-5">
@@ -51,27 +48,36 @@ const Home = () => {
     <h2 class="text-center fw-bold m-5">FREQUENTLY ASKED QUESTION</h2>
     <Accordion defaultActiveKey="0">
   <Accordion.Item eventKey="0">
-    <Accordion.Header>Accordion Item #1</Accordion.Header>
+    <Accordion.Header>What is a Pay Monthly or Contract Phone deal?</Accordion.Header>
     <Accordion.Body>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
+    A pay monthly deal is where you pay a set amount of money each month for a phone that has a monthly allowance of minutes, texts and data. With pay monthly phones, Normally this ll be over a period of 24 months.
     </Accordion.Body>
   </Accordion.Item>
   <Accordion.Item eventKey="1">
-    <Accordion.Header>Accordion Item #2</Accordion.Header>
+    <Accordion.Header>What are the advantages of a Pay Monthly contract?</Accordion.Header>
     <Accordion.Body>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
+    The main advantage of a pay monthly contract - compared with SIM free or pay as you go - is that you can get one of the latest phones without paying the full amount. The cost of the phone is covered by your monthly payments, and you pay it off over the course of your contract.
+
+ 
+
+If you love talking, texting and going online, you can get a bigger bundle of calls, texts and data on a pay monthly contract than a pay as you go one. So you’ll always be connected. And there’s no topping up, just one monthly hassle-free payment by Direct Debit.
+
+ 
+    </Accordion.Body>
+  </Accordion.Item>
+  <Accordion.Item eventKey="2">
+    <Accordion.Header>How do Pay Monthly phone contracts work? </Accordion.Header>
+    <Accordion.Body>
+    We offer 24 month agreements.
+You’ll be charged a fixed monthly fee for:
+
+Line rental to your chosen network
+
+A set amount of minutes, texts and internet data
+Some deals require a one-off charge for your phone upfront.
+
+We’ll ask for a credit check before you can take out a contract.
+
     </Accordion.Body>
   </Accordion.Item>
 </Accordion>
@@ -82,8 +88,8 @@ const Home = () => {
 
         <div class="card-body">
             <h5 class="card-title">For any kind of information contact Us</h5>
-            <p class="card-text">Email:dcc.bd@gmail.com</p>
-
+            <p class="card-text">Email:psbd.bd@gmail.com</p>
+            <p class="card-text">Mirpur ,2,dhaka</p>
         </div>
         <div class="card-footer border-0">
             +8801710854376
