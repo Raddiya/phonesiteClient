@@ -23,17 +23,17 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link as={NavLink} to="/">Home</Nav.Link>
-              <Nav.Link as={NavLink} to="/inventory">Home</Nav.Link>
-              <Nav.Link as={NavLink} to="/blog">Home</Nav.Link>
+              <Nav.Link as={NavLink} to="/inventory">Inventory</Nav.Link>
+              <Nav.Link as={NavLink} to="/blog">Blog</Nav.Link>
               {
                 user ? (<>
-                  <Nav.Link as={NavLink} to="/manageinventory">Home</Nav.Link>
-                  <Nav.Link as={NavLink} to="/myitems">Home</Nav.Link>
-                  <Nav.Link as={NavLink} to="/additems">Home</Nav.Link>
+                  <Nav.Link as={NavLink} to="/manageinventory">Manage Inventory</Nav.Link>
+                  <Nav.Link as={NavLink} to="/myitems">My Items</Nav.Link>
+                  <Nav.Link as={NavLink} to="/additems">Add Items</Nav.Link>
                   <Nav.Link as={NavLink} onClick={handleSignOut} to="/">Signout</Nav.Link>
                 </>) : (<>
-                  <Nav.Link as={NavLink} to="/signup">Home</Nav.Link>
-                  <Nav.Link as={NavLink} to="/login">Home</Nav.Link>
+                  <Nav.Link as={NavLink} to="/signup">Signup</Nav.Link>
+                  <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
 
                 </>)
 

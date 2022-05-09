@@ -13,7 +13,7 @@ const MyCard = (props) => {
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>
-            Quantity:{quantity}
+            Quantity:{parseInt(quantity)>0?quantity:'sold out'}
           </Card.Text>
           <Card.Text>
             price:{price}
@@ -24,7 +24,7 @@ const MyCard = (props) => {
           <Card.Text>
             {about}
           </Card.Text>
-          <Link to={`/singleitems/${_id}`} >Manage Inventory</Link>
+          <Link className='btn btn-primary' to={`/singleitems/${_id}`} >Manage Inventory</Link>
         </Card.Body>
       </Card>
     </div>

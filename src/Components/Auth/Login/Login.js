@@ -104,13 +104,12 @@ const Login = () => {
         <div className="login-container container">
             <h1 className="login-title">LOGIN</h1>
             <form onSubmit={handleLogin}>
-                <input type="text" className="input" placeholder="Your Email" onChange={handleEmailChange} />
+                <input  type="text" className="input form-control" placeholder="Your Email" onChange={handleEmailChange} />
                 {errors?.email && <p className="error-message">{errors.email}</p>}
-                <input className="input" type="password" placeholder="password" onChange={handlePasswordChange} />
+                <input className="input form-control" type="password" placeholder="password" onChange={handlePasswordChange} />
                 {errors?.password && <p className="error-message">{errors.password}</p>}
                 <br></br>
                 <button className="button">Login</button>
-                <ToastContainer />
 
                 <p>Don't have an account? <Link to="/signup">Sign up first</Link> </p>
             </form>

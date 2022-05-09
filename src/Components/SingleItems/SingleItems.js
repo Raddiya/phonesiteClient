@@ -47,7 +47,7 @@ const SingleItems = () => {
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
-                        Quantity:{quantity}
+                        Quantity:{parseInt(quantity)>0?quantity:'sold out'}
                     </Card.Text>
                     <Card.Text>
                         price:{price}
